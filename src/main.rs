@@ -1,9 +1,10 @@
-// use chrono::{DateTime, Duration, FixedOffset};
 use anyhow::{Context, Result};
 use std::io::{self, BufRead, BufReader, Write};
 use time::{format_description::well_known, Duration, PrimitiveDateTime};
 
 use regex::Regex;
+
+const ISO8601: &str = r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?([Zz]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?";
 
 fn main() -> Result<()> {
     if let Err(e) = run() {
@@ -18,7 +19,7 @@ fn run() -> Result<()> {
     let reader = BufReader::new(io::stdin());
     let mut stdout = io::stdout();
     let mut t0: Option<PrimitiveDateTime> = None;
-    let re = Regex::new(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?([Zz]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?").unwrap();
+    let re = Regex::new(ISO8601).unwrap();
     for line in reader.lines() {
         let line = line.unwrap();
         let result = match re.captures(&line) {
