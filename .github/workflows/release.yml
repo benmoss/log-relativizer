@@ -17,6 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chainguard-dev/actions/setup-gitsign@main
+      - uses: taiki-e/install-action@cargo-binstall
       - name: Install cargo-release
         uses: taiki-e/install-action@v1
         with:
