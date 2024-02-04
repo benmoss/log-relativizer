@@ -1,0 +1,11 @@
+[package]
+name = "log-relativizer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.79"
+regex = "1.10.3"
+time = { version = "0.3.34", features = ["parsing", "formatting"] }
