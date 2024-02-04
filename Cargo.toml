@@ -2,6 +2,9 @@
 name = "log-relativizer"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "a tool for modifying log timestamps into relative durations"
+homepage = "https://github.com/benmoss/log-relativizer"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
